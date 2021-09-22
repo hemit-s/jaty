@@ -12,9 +12,9 @@ python manage.py runserver
 
 ## Accessing URLs:
 Something like
-```
-http://localhost:8000/get_address_info
-```
+
+[http://localhost:8000/get_address_info](http://localhost:8000/get_address_info)
+
 
 # To Add Endpoints:
 - Add function to views.py
