@@ -1,1 +1,2 @@
 Django==3.2.7
+googlemaps==4.5.3
