@@ -1,4 +1,4 @@
 src/backend/coopstop/__pycache__/
 gcp_key.txt
 gcp_key.py
-vscode/
+.vscode/
