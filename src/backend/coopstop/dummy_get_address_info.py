@@ -14,49 +14,51 @@ payload = {
     # "expected_work_arrival_time": 5000
 }
 
+# all distances are the same unit (km)
+# travel time in minutes
 return_val = {
 
     # "work_travel_distance": "50km",
     "travel_times_to_work": {
-        "walking" : "40m",
-        "biking" : "55m",
-        "public_transit" : "35m",
-        "car": "10m"
+        "walking" : 40,
+        "biking" : 50,
+        "public_transit" : 35,
+        "car": 10
     },
 
     "grocery_locations": [
         {
             "name": "Loblaws",
-            "distance" : "4km",
-            # "travel_time" : "4m"
+            "distance" : 1.4,
+            # "travel_time" : "4"
         },
         {
             "name": "Food Basics",
-            "distance" : "5km",
-            # "travel_time" : "4m"
+            "distance" : 1.5,
+            # "travel_time" : "4"
         },
         {
             "name": "Walmart",
-            "distance" : "6km",
-            # "travel_time" : "4m"
+            "distance" : 1.6,
+            # "travel_time" : "4"
         }
     ],
 
     "gym_locations":[
         {
             "name": "Goodlife",
-            "distance" : "4km",
-            # "travel_time" : "4m"
+            "distance" : 4.2,
+            # "travel_time" : "4"
         },
         {
             "name": "Lyft Tingz",
-            "distance" : "5km",
-            # "travel_time" : "4m"
+            "distance" : 5.1,
+            # "travel_time" : "4"
         },
         {
             "name": "Git Big",
-            "distance" : "6km",
-            # "travel_time" : "4m"
+            "distance" : 6.3,
+            # "travel_time" : "4"
         }
     ]
 
