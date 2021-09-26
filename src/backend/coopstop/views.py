@@ -1,6 +1,7 @@
 from django.http import JsonResponse
 import json
-
+import googlemaps
+from coopstop.gcp_key import GCP_KEY
 
 def get_address_information(request):
 
@@ -9,21 +10,28 @@ def get_address_information(request):
 
     destination = json_content["destination"]
     expected_work_arrival_time = json_content["expected_work_arrival_time"]
+    addresses = json_content["addresses"]
+    get_address_commute_times(addresses, destination, expected_work_arrival_time)
 
     for address in json_content["addresses"]:
         print("########################")
         print(f"Processing {address}")
-        get_address_commute_times(address, destination, expected_work_arrival_time)
         get_gyms_nearby(address)
         get_groceries_nearby(address)
-
         print()
 
     return JsonResponse({"key1": "value1", "key2": "value2"})
 
-def get_address_commute_times(address, destination, expected_work_arrival_time):
-    print(f"Getting Commute Times for {address} to {destination} by {expected_work_arrival_time}")
-    return JsonResponse({"car": 5, "bus": 10})
+def get_address_commute_times(addresses, destination, expected_work_arrival_time):
+    print(f"Getting Commute Times for {addresses} to {destination} by {expected_work_arrival_time}")
+    gmaps = googlemaps.Client(key=GCP_KEY)
+    data = dict(zip(addresses, [{}]*len(addresses)))
+    for travel_mode in ['driving', 'walking', 'transit', 'bicycling']:
+        results = gmaps.distance_matrix(origins=addresses, destinations=destination, mode=travel_mode, arrival_time=expected_work_arrival_time)
+        outputs = [row.get("elements")[0] for row in results.get("rows")]
+        for index, address in enumerate(addresses):
+            data.get(address)[travel_mode] = outputs[index]
+    return JsonResponse(data)
 
 def get_gyms_nearby(address):
     print(f"Getting Gyms near {address}")

@@ -1,0 +1,232 @@
+{
+  "242 Albert St, Waterloo, ON": {
+    "driving": {
+      "distance": {
+        "text": "1.8 km",
+        "value": 1803
+      },
+      "duration": {
+        "text": "5 mins",
+        "value": 284
+      },
+      "status": "OK"
+    },
+    "walking": {
+      "distance": {
+        "text": "1.3 km",
+        "value": 1266
+      },
+      "duration": {
+        "text": "16 mins",
+        "value": 974
+      },
+      "status": "OK"
+    },
+    "transit": {
+      "distance": {
+        "text": "1.3 km",
+        "value": 1266
+      },
+      "duration": {
+        "text": "16 mins",
+        "value": 974
+      },
+      "status": "OK"
+    },
+    "bicycling": {
+      "distance": {
+        "text": "1.5 km",
+        "value": 1498
+      },
+      "duration": {
+        "text": "7 mins",
+        "value": 440
+      },
+      "status": "OK"
+    }
+  },
+  "64 Balsam St, Waterloo, ON": {
+    "driving": {
+      "distance": {
+        "text": "1.8 km",
+        "value": 1803
+      },
+      "duration": {
+        "text": "5 mins",
+        "value": 284
+      },
+      "status": "OK"
+    },
+    "walking": {
+      "distance": {
+        "text": "1.3 km",
+        "value": 1266
+      },
+      "duration": {
+        "text": "16 mins",
+        "value": 974
+      },
+      "status": "OK"
+    },
+    "transit": {
+      "distance": {
+        "text": "1.3 km",
+        "value": 1266
+      },
+      "duration": {
+        "text": "16 mins",
+        "value": 974
+      },
+      "status": "OK"
+    },
+    "bicycling": {
+      "distance": {
+        "text": "1.5 km",
+        "value": 1498
+      },
+      "duration": {
+        "text": "7 mins",
+        "value": 440
+      },
+      "status": "OK"
+    }
+  },
+  "296 Hemlock St, Waterloo, ON": {
+    "driving": {
+      "distance": {
+        "text": "1.8 km",
+        "value": 1803
+      },
+      "duration": {
+        "text": "5 mins",
+        "value": 284
+      },
+      "status": "OK"
+    },
+    "walking": {
+      "distance": {
+        "text": "1.3 km",
+        "value": 1266
+      },
+      "duration": {
+        "text": "16 mins",
+        "value": 974
+      },
+      "status": "OK"
+    },
+    "transit": {
+      "distance": {
+        "text": "1.3 km",
+        "value": 1266
+      },
+      "duration": {
+        "text": "16 mins",
+        "value": 974
+      },
+      "status": "OK"
+    },
+    "bicycling": {
+      "distance": {
+        "text": "1.5 km",
+        "value": 1498
+      },
+      "duration": {
+        "text": "7 mins",
+        "value": 440
+      },
+      "status": "OK"
+    }
+  },
+  "20 Barrel Yards Blvd #1, Waterloo, ON": {
+    "driving": {
+      "distance": {
+        "text": "1.8 km",
+        "value": 1803
+      },
+      "duration": {
+        "text": "5 mins",
+        "value": 284
+      },
+      "status": "OK"
+    },
+    "walking": {
+      "distance": {
+        "text": "1.3 km",
+        "value": 1266
+      },
+      "duration": {
+        "text": "16 mins",
+        "value": 974
+      },
+      "status": "OK"
+    },
+    "transit": {
+      "distance": {
+        "text": "1.3 km",
+        "value": 1266
+      },
+      "duration": {
+        "text": "16 mins",
+        "value": 974
+      },
+      "status": "OK"
+    },
+    "bicycling": {
+      "distance": {
+        "text": "1.5 km",
+        "value": 1498
+      },
+      "duration": {
+        "text": "7 mins",
+        "value": 440
+      },
+      "status": "OK"
+    }
+  },
+  "140 Iroquois Pl, Waterloo, ON": {
+    "driving": {
+      "distance": {
+        "text": "1.8 km",
+        "value": 1803
+      },
+      "duration": {
+        "text": "5 mins",
+        "value": 284
+      },
+      "status": "OK"
+    },
+    "walking": {
+      "distance": {
+        "text": "1.3 km",
+        "value": 1266
+      },
+      "duration": {
+        "text": "16 mins",
+        "value": 974
+      },
+      "status": "OK"
+    },
+    "transit": {
+      "distance": {
+        "text": "1.3 km",
+        "value": 1266
+      },
+      "duration": {
+        "text": "16 mins",
+        "value": 974
+      },
+      "status": "OK"
+    },
+    "bicycling": {
+      "distance": {
+        "text": "1.5 km",
+        "value": 1498
+      },
+      "duration": {
+        "text": "7 mins",
+        "value": 440
+      },
+      "status": "OK"
+    }
+  }
+}
