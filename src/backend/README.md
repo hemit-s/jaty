@@ -1,5 +1,10 @@
 # Backend Setup
 
+## Activate venv:
+```bash
+source backend_venv/bin/activate
+```
+
 ## Installation:
 ```bash
 pip install -r requirements.txt
