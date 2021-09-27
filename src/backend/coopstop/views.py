@@ -3,24 +3,29 @@ import json
 import googlemaps
 from coopstop.gcp_key import GCP_KEY
 
+from coopstop.address_info_interface import sample_return_val
+
 def get_address_information(request):
 
-    json_content = json.loads(request.body)
-    print(json.dumps(json_content, indent=2))
+    # json_content = json.loads(request.body)
+    # print(json.dumps(json_content, indent=2))
 
-    destination = json_content["destination"]
-    expected_work_arrival_time = json_content["expected_work_arrival_time"]
-    addresses = json_content["addresses"]
-    get_address_commute_times(addresses, destination, expected_work_arrival_time)
+    # destination = json_content["destination"]
+    # expected_work_arrival_time = json_content["expected_work_arrival_time"]
+    # addresses = json_content["addresses"]
+    # get_address_commute_times(addresses, destination, expected_work_arrival_time)
 
-    for address in json_content["addresses"]:
-        print("########################")
-        print(f"Processing {address}")
-        get_gyms_nearby(address)
-        get_groceries_nearby(address)
-        print()
+    # for address in json_content["addresses"]:
+    #     print("########################")
+    #     print(f"Processing {address}")
+    #     get_gyms_nearby(address)
+    #     get_groceries_nearby(address)
+    #     print()
 
-    return JsonResponse({"key1": "value1", "key2": "value2"})
+    # print(sample_return_val)
+
+    print(json.dumps(sample_return_val, indent=2))
+    return JsonResponse(sample_return_val)
 
 def get_address_commute_times(addresses, destination, expected_work_arrival_time):
     print(f"Getting Commute Times for {addresses} to {destination} by {expected_work_arrival_time}")

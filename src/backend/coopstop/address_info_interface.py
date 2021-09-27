@@ -16,7 +16,7 @@ payload = {
 
 # all distances are the same unit (km)
 # travel time in minutes
-return_val = {
+sample_return_val = {
 
     # "work_travel_distance": "50km",
     "travel_times_to_work": {
@@ -64,4 +64,4 @@ return_val = {
 
 }
 
-requests.get("http://127.0.0.1:8000/get_address_info", json=payload)
+# requests.get("http://127.0.0.1:8000/get_address_info", json=payload)
