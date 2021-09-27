@@ -4,6 +4,7 @@ import json
 import googlemaps
 from coopstop.gcp_key import GCP_KEY
 
+from coopstop.address_info_interface import sample_return_val
 
 def get_address_information(request):
     """
@@ -30,6 +31,7 @@ def get_address_information(request):
         data.get(address).update(get_type_nearby(address, "supermarket"))
         print()
 
+    print(json.dumps(data, indent=2))
     return JsonResponse(data)
 
 
@@ -77,7 +79,6 @@ def get_address_coordinates(address):
     return coordinates
 
 
-# 
 def get_type_nearby(address, type):
     """
     Returns a list of places of the given type within 1km radius around the provided address along with the times needed
