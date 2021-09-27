@@ -1,7 +1,7 @@
 import datetime
 import json
 
-def get_waterloo_example(json=False):
+def get_waterloo_example(ret_json=False):
 
 	addresses = [
 		"242 Albert St, Waterloo, ON",
@@ -24,4 +24,5 @@ def get_waterloo_example(json=False):
 		"mode": travel_mode
 	}
 
-	return json.dumps(params) if json else params
+	# datetime can't be serialized so default=str
+	return json.dumps(params, default=str) if ret_json else params
