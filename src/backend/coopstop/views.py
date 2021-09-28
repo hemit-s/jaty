@@ -15,8 +15,8 @@ def get_address_information(request):
                     and 'addresses' mapped to a list of addresses to be considered for commute times and nearby gyms and groceries
     """
 
-    destination = request.query_params.get("destination")
-    addresses = request.query_params.getlist("addresses[]")
+    destination = request.GET.get("destination")
+    addresses = request.GET.getlist("addresses[]")
 
     data = dict(zip(addresses, [{}]*len(addresses)))
     for address in addresses:
