@@ -35,7 +35,7 @@ def get_address_information(request):
     return JsonResponse(data)
 
 
-def get_address_commute_times(address, destination, arrival_time=datetime.datetime(2021, 9, 26, 9), travel_modes=['driving', 'walking', 'transit', 'bicycling']):
+def get_address_commute_times(address, destination, arrival_time=datetime(2021, 9, 26, 9), travel_modes=['driving', 'walking', 'transit', 'bicycling']):
     """
     Finds the distance and duration of commutes from the given address to destination for all travel modes in the list,
     additionally incorporating provided arrival time.
