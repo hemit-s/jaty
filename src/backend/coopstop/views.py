@@ -11,16 +11,12 @@ def get_address_information(request):
     Endpoint to retrieve information regarding commute times to work, nearby gyms and grocery stores and times to
     commute to them in any number of ways
     
-    :param request: Must contain two main values: 'destination' mapped to single street address for work
+    :param request: Must contain two main parameters: 'destination' mapped to single street address for work
                     and 'addresses' mapped to a list of addresses to be considered for commute times and nearby gyms and groceries
-    :type request: JSON string
     """
 
-    json_content = json.loads(request.body)
-    print(json.dumps(json_content, indent=2))
-
-    destination = json_content["destination"]
-    addresses = json_content["addresses"]
+    destination = request.query_params.get("destination")
+    addresses = request.query_params.getlist("addresses[]")
 
     data = dict(zip(addresses, [{}]*len(addresses)))
     for address in addresses:
