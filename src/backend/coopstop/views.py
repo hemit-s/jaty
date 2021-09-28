@@ -22,7 +22,7 @@ def get_address_information(request):
     for address in addresses:
         print("########################")
         print(f"Processing {address}")
-        data.get(address).update(get_address_commute_times(address, destination))
+        data.get(address).update({'work': get_address_commute_times(address, destination)})
         data.get(address).update(get_type_nearby(address, "gym"))
         data.get(address).update(get_type_nearby(address, "supermarket"))
         print()
@@ -97,11 +97,11 @@ def get_type_nearby(address, type):
     gmaps = googlemaps.Client(key=GCP_KEY)
     response = gmaps.places_nearby(location=address_coordinates, radius=radius, type=type)
 
-    place_ids = [place["place_id"] for place in response["results"]]
+    place_ids = [place["place_id"] for place in response["results"][:5]]
     place_distances = [get_address_commute_times(address, f"place_id:{place_id}", None) for place_id in place_ids]
 
     place_list = []
-    for index, place in enumerate(response["results"]):
+    for index, place in enumerate(response["results"][:5]):
         place_list.append({
             "name" : place["name"],
             "commutes" : place_distances[index]
