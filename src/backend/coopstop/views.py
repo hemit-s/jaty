@@ -11,22 +11,18 @@ def get_address_information(request):
     Endpoint to retrieve information regarding commute times to work, nearby gyms and grocery stores and times to
     commute to them in any number of ways
     
-    :param request: Must contain two main values: 'destination' mapped to single street address for work
+    :param request: Must contain two main parameters: 'destination' mapped to single street address for work
                     and 'addresses' mapped to a list of addresses to be considered for commute times and nearby gyms and groceries
-    :type request: JSON string
     """
 
-    json_content = json.loads(request.body)
-    print(json.dumps(json_content, indent=2))
-
-    destination = json_content["destination"]
-    addresses = json_content["addresses"]
+    destination = request.GET.get("destination")
+    addresses = request.GET.getlist("addresses[]")
 
     data = dict(zip(addresses, [{}]*len(addresses)))
     for address in addresses:
         print("########################")
         print(f"Processing {address}")
-        data.get(address).update(get_address_commute_times(address, destination))
+        data.get(address).update({'work': get_address_commute_times(address, destination)})
         data.get(address).update(get_type_nearby(address, "gym"))
         data.get(address).update(get_type_nearby(address, "supermarket"))
         print()
@@ -35,7 +31,7 @@ def get_address_information(request):
     return JsonResponse(data)
 
 
-def get_address_commute_times(address, destination, arrival_time=datetime.datetime(2021, 9, 26, 9), travel_modes=['driving', 'walking', 'transit', 'bicycling']):
+def get_address_commute_times(address, destination, arrival_time=datetime(2021, 9, 26, 9), travel_modes=['driving', 'walking', 'transit', 'bicycling']):
     """
     Finds the distance and duration of commutes from the given address to destination for all travel modes in the list,
     additionally incorporating provided arrival time.
@@ -101,11 +97,11 @@ def get_type_nearby(address, type):
     gmaps = googlemaps.Client(key=GCP_KEY)
     response = gmaps.places_nearby(location=address_coordinates, radius=radius, type=type)
 
-    place_ids = [place["place_id"] for place in response["results"]]
+    place_ids = [place["place_id"] for place in response["results"][:5]]
     place_distances = [get_address_commute_times(address, f"place_id:{place_id}", None) for place_id in place_ids]
 
     place_list = []
-    for index, place in enumerate(response["results"]):
+    for index, place in enumerate(response["results"][:5]):
         place_list.append({
             "name" : place["name"],
             "commutes" : place_distances[index]

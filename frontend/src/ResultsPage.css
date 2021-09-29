@@ -1,0 +1,8 @@
+.Results-Container {
+  display: flex;
+}
+
+.Results-Card {
+  width: 18%;
+  margin: 0 1%;
+}
