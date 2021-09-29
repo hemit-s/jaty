@@ -4,12 +4,9 @@ import React, {
 } from 'react';
 
 const DEFAULT_STATE = {
-  addresses: ['242 Albert St, Waterloo, ON'],
+  addresses: ['242 Albert St, Waterloo, ON', '295 Lester St, Waterloo, ON', '296 Hemlock St, Waterloo, ON'],
   destination: '200 University Ave W, Waterloo, ON',
-  results: {
-    ree: {},
-    woo: {},
-  },
+  results: {},
   setResults: () => {},
 };
 
@@ -110,7 +107,7 @@ export const AppContextProvider = ({ children }) => {
           },
         },
         {
-          name: 'Granite Club Rink In the Park',
+          name: 'Goodlife Fitness',
           commutes: {
             driving: {
               distance: {
@@ -202,7 +199,7 @@ export const AppContextProvider = ({ children }) => {
           },
         },
         {
-          name: 'India Food and Grocery',
+          name: 'Loblaws',
           commutes: {
             driving: {
               distance: {

@@ -1,12 +1,12 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Container, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 // use Async Select for loading options from remote source https://react-select.com/home#async
 import Select from 'react-select';
 import { useAppContext } from './AppContext';
-
 import './HomePage.css';
+import Logo from './Logo.png';
 
 const options = [
   { value: 'address1', label: 'address1' },
@@ -35,9 +35,9 @@ const HomePage = () => {
           addresses,
         },
       });
-      setResults({ ...res.data });
+      setResults(res.data);
     } catch (ex) {
-      console.log('exception!');
+      alert('exception!');
     } finally {
       setIsLoading(false);
     }
@@ -50,32 +50,35 @@ const HomePage = () => {
   };
 
   return (
-    <Form className="Home-Page-Container">
-      <Form.Group className="mb-3">
-        <Form.Label>Listing Addresses</Form.Label>
-        <Select
-          // defaultValue={[colourOptions[2], colourOptions[3]]}
-          isMulti
-          name="colors"
-          options={options}
-          className="basic-multi-select"
-          classNamePrefix="select"
-        />
-      </Form.Group>
+    <Container>
+      <img src={Logo} alt="Co-opStop" className="Logo" />
+      <Form className="Home-Page-Container">
+        <Form.Group className="mb-3">
+          <Form.Label>Listing Addresses</Form.Label>
+          <Select
+            // defaultValue={[colourOptions[2], colourOptions[3]]}
+            isMulti
+            name="colors"
+            options={options}
+            className="basic-multi-select"
+            classNamePrefix="select"
+          />
+        </Form.Group>
 
-      <Form.Group className="mb-3">
-        <Form.Label>Work Address</Form.Label>
-        <Form.Control placeholder="Type address" />
-      </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Work Address</Form.Label>
+          <Form.Control placeholder="Type address" />
+        </Form.Group>
 
-      <Form.Group className="mb-3">
-        <Form.Label>Travel Time</Form.Label>
-        <Form.Control type="number" placeholder="travel time" />
-      </Form.Group>
-      <Button variant="primary" type="submit" disabled={isLoading} onClick={onSubmit}>
-        Submit
-      </Button>
-    </Form>
+        <Form.Group className="mb-3">
+          <Form.Label>Travel Time</Form.Label>
+          <Form.Control type="number" placeholder="travel time" />
+        </Form.Group>
+        <Button variant="primary" type="submit" disabled={isLoading} onClick={onSubmit}>
+          Submit
+        </Button>
+      </Form>
+    </Container>
   );
 };
 
