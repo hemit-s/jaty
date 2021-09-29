@@ -18,7 +18,7 @@ def get_address_information(request):
     destination = request.GET.get("destination")
     addresses = request.GET.getlist("addresses[]")
 
-    data = dict(zip(addresses, [{}]*len(addresses)))
+    data = dict(zip(addresses, [{} for _ in range(len(addresses))]))
     for address in addresses:
         print("########################")
         print(f"Processing {address}")
