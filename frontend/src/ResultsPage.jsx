@@ -1,28 +1,27 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-
 import { Card } from 'react-bootstrap';
+import { useAppContext } from './AppContext';
 import './ResultsPage.css';
 
-// eslint-disable-next-line no-unused-vars
 const ResultCard = (props) => {
-  const { optionNum } = props;
+  const { name, details } = props;
   return (
     <Card className="Results-Card">
       <Card.Body>
-        <Card.Title>{`Option ${optionNum}`}</Card.Title>
+        <Card.Title>{name}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">Travel Distance</Card.Subtitle>
         <Card.Text>
-          Commute time for walking: 35 min
+          {`Commute time for walking: ${details.walking.duration.text}`}
         </Card.Text>
         <Card.Text>
-          Commute time for biking: 35 min
+          {`Commute time for biking: ${details.bicycling.duration.text}`}
         </Card.Text>
         <Card.Text>
-          Commute time for public transit: 35 min
+          {`Commute time for public transit: ${details.transit.duration.text}`}
         </Card.Text>
         <Card.Text>
-          Commute time for driving: 35 min
+          {`Commute time for driving: ${details.driving.duration.text}`}
         </Card.Text>
       </Card.Body>
     </Card>
@@ -30,11 +29,14 @@ const ResultCard = (props) => {
 };
 
 const ResultsPage = () => {
-  const options = ['', '', '', '', ''];
+  const {
+    results,
+  } = useAppContext();
+  const options = Object.keys(results) ?? [];
   return (
     <div className="Results-Container">
-      {options.map((_, i) => (
-        <ResultCard optionNum={i} />
+      {options.map((name) => (
+        <ResultCard name={name} details={results[name].work} />
       ))}
     </div>
   );

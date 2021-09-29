@@ -27,12 +27,12 @@ export default function App() {
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-        <Routes>
-          <AppContextProvider>
+        <AppContextProvider>
+          <Routes>
             <Route path="/results" element={<ResultsPage />} />
             <Route path="/" element={<HomePage />} />
-          </AppContextProvider>
-        </Routes>
+          </Routes>
+        </AppContextProvider>
       </div>
     </Router>
   );
