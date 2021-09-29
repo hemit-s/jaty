@@ -1,4 +1,5 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 // use Async Select for loading options from remote source https://react-select.com/home#async
@@ -14,13 +15,37 @@ const options = [
 ];
 
 const HomePage = () => {
-  // eslint-disable-next-line no-unused-vars
-  const { addresses, destination } = useAppContext();
+  const {
+    addresses,
+    destination,
+    setResults,
+  } = useAppContext();
 
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
-  const onSubmit = (e) => {
+  const getResults = async () => {
+    setIsLoading(true);
+    try {
+      const res = await axios({
+        method: 'get',
+        url: `${process.env.REACT_APP_API_KEY}get_address_info`,
+        params: {
+          destination,
+          addresses,
+        },
+      });
+      setResults({ ...res.data });
+    } catch (ex) {
+      console.log('exception!');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const onSubmit = async (e) => {
     e.preventDefault();
+    await getResults();
     navigate('/results');
   };
 
@@ -47,7 +72,7 @@ const HomePage = () => {
         <Form.Label>Travel Time</Form.Label>
         <Form.Control type="number" placeholder="travel time" />
       </Form.Group>
-      <Button variant="primary" type="submit" onClick={onSubmit}>
+      <Button variant="primary" type="submit" disabled={isLoading} onClick={onSubmit}>
         Submit
       </Button>
     </Form>

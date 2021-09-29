@@ -46,6 +46,7 @@
     ]
   },
   "devDependencies": {
+    "chokidar": "^3.5.2",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.24.2",
