@@ -5,19 +5,22 @@ import { useNavigate } from 'react-router-dom';
 // use Async Select for loading options from remote source https://react-select.com/home#async
 import Select from 'react-select';
 import { useAppContext } from './AppContext';
+import { optionsToAnswers, answersToOptions } from './util';
 import './HomePage.css';
 import Logo from './Logo.png';
 
 const options = [
-  { value: 'address1', label: 'address1' },
-  { value: 'address2', label: 'address2' },
-  { value: 'address3', label: 'address3' },
+  { value: '242 Albert St, Waterloo, ON', label: '242 Albert St, Waterloo, ON' },
+  { value: '295 Lester St, Waterloo, ON', label: '295 Lester St, Waterloo, ON' },
+  { value: '296 Hemlock St, Waterloo, ON', label: '296 Hemlock St, Waterloo, ON' },
 ];
 
 const HomePage = () => {
   const {
     addresses,
+    setAddresses,
     destination,
+    setDestination,
     setResults,
   } = useAppContext();
 
@@ -62,12 +65,16 @@ const HomePage = () => {
             options={options}
             className="basic-multi-select"
             classNamePrefix="select"
+            value={answersToOptions(addresses)}
+            onChange={(value) => {
+              setAddresses(optionsToAnswers(value));
+            }}
           />
         </Form.Group>
 
         <Form.Group className="mb-3">
           <Form.Label>Work Address</Form.Label>
-          <Form.Control placeholder="Type address" />
+          <Form.Control placeholder="Type address" value={destination} onChange={(e) => setDestination(e.target.value)} />
         </Form.Group>
 
         <Form.Group className="mb-3">

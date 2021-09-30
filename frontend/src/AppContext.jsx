@@ -15,6 +15,8 @@ const AppContext = createContext(DEFAULT_STATE);
 export const useAppContext = () => useContext(AppContext);
 
 export const AppContextProvider = ({ children }) => {
+  const [addresses, setAddresses] = useState([]);
+  const [destination, setDestination] = useState('');
   // sample data for testing the layout w/o needing to make the API call
   const [results, setResults] = useState({
     '242 Albert St, Waterloo, ON': {
@@ -247,9 +249,13 @@ export const AppContextProvider = ({ children }) => {
     },
   });
   const appState = {
-    ...DEFAULT_STATE,
+    // ...DEFAULT_STATE,
     results,
     setResults,
+    addresses,
+    setAddresses,
+    destination,
+    setDestination,
   };
   return (
     <AppContext.Provider value={appState}>{children}</AppContext.Provider>
