@@ -10,9 +10,9 @@ import {
 } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useAppContext } from './AppContext';
-import { capitalize } from './helpers';
 import Logo from './Logo.png';
 import './ResultsPage.css';
+import { capitalize } from './util';
 
 library.add(faBiking, faBus, faCar, faWalking);
 
@@ -25,9 +25,9 @@ const modeToIcon = {
   driving: 'car',
 };
 
-const AmmenityCard = (props) => {
+const AmenityCard = (props) => {
   const { name, details } = props;
-  const ammenities = ['supermarket', 'gym'];
+  const amenities = ['supermarket', 'gym'];
   const [selectedMode, setSelectedMode] = useState('transit');
   return (
     <Card className="mb-3">
@@ -45,12 +45,12 @@ const AmmenityCard = (props) => {
           </Dropdown.Menu>
         </Dropdown>
         <Card.Title>Amenities</Card.Title>
-        {ammenities.map((ammenity) => (
-          <div key={`${name}-${ammenity}`}>
-            <Card.Subtitle className="mb-2 text-muted">{`Top ${capitalize(ammenity)} Locations`}</Card.Subtitle>
+        {amenities.map((amenity) => (
+          <div key={`${name}-${amenity}`}>
+            <Card.Subtitle className="mb-2 text-muted">{`Top ${capitalize(amenity)} Locations`}</Card.Subtitle>
             <ol>
-              {details[ammenity].map((option) => (
-                <li key={`${name}-${ammenity}-${option.name}`}>
+              {details[amenity].map((option) => (
+                <li key={`${name}-${amenity}-${option.name}`}>
                   {option.name}
                   <div className="ms-3 d-flex flex-row">
                     {`Commute Time: ${option.commutes[selectedMode].duration.text}`}
@@ -127,7 +127,7 @@ const ResultsPage = () => {
             <Col key={name}>
               <h5 className="text-center">{name}</h5>
               <WorkCommuteCard key={`work-${name}`} name={name} details={results[name].work} />
-              <AmmenityCard key={`ammenity-${name}`} name={name} details={rest} />
+              <AmenityCard key={`amenity-${name}`} name={name} details={rest} />
             </Col>
           );
         })}

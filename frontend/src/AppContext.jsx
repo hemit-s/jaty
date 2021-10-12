@@ -195,7 +195,7 @@ export const AppContextProvider = ({ children }) => {
               },
               duration: {
                 text: '4 mins',
-                value: 223,
+                value: 480,
               },
             },
           },
@@ -209,8 +209,8 @@ export const AppContextProvider = ({ children }) => {
                 value: 1099,
               },
               duration: {
-                text: '3 mins',
-                value: 194,
+                text: '1 mins',
+                value: 60,
               },
             },
             walking: {
@@ -219,8 +219,8 @@ export const AppContextProvider = ({ children }) => {
                 value: 964,
               },
               duration: {
-                text: '12 mins',
-                value: 712,
+                text: '4 mins',
+                value: 480,
               },
             },
             transit: {
@@ -229,8 +229,8 @@ export const AppContextProvider = ({ children }) => {
                 value: 964,
               },
               duration: {
-                text: '12 mins',
-                value: 712,
+                text: '2 mins',
+                value: 120,
               },
             },
             bicycling: {
@@ -239,8 +239,8 @@ export const AppContextProvider = ({ children }) => {
                 value: 995,
               },
               duration: {
-                text: '4 mins',
-                value: 223,
+                text: '3 mins',
+                value: 360,
               },
             },
           },
