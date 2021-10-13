@@ -1,8 +1,11 @@
-.Results-Container {
-  display: flex;
+.Logo {
+  display: block;
+  margin: 0 auto;
 }
 
-.Results-Card {
-  width: 18%;
-  margin: 0 1%;
+.Icon {
+  width: 1.25em;
+  display: flex;
+  align-self: center;
+  justify-content: center;
 }

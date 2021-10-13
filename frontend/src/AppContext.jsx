@@ -4,12 +4,9 @@ import React, {
 } from 'react';
 
 const DEFAULT_STATE = {
-  addresses: ['242 Albert St, Waterloo, ON'],
+  addresses: ['242 Albert St, Waterloo, ON', '295 Lester St, Waterloo, ON', '296 Hemlock St, Waterloo, ON'],
   destination: '200 University Ave W, Waterloo, ON',
-  results: {
-    ree: {},
-    woo: {},
-  },
+  results: {},
   setResults: () => {},
 };
 
@@ -18,6 +15,8 @@ const AppContext = createContext(DEFAULT_STATE);
 export const useAppContext = () => useContext(AppContext);
 
 export const AppContextProvider = ({ children }) => {
+  const [addresses, setAddresses] = useState([]);
+  const [destination, setDestination] = useState('');
   // sample data for testing the layout w/o needing to make the API call
   const [results, setResults] = useState({
     '242 Albert St, Waterloo, ON': {
@@ -110,7 +109,7 @@ export const AppContextProvider = ({ children }) => {
           },
         },
         {
-          name: 'Granite Club Rink In the Park',
+          name: 'Goodlife Fitness',
           commutes: {
             driving: {
               distance: {
@@ -196,13 +195,13 @@ export const AppContextProvider = ({ children }) => {
               },
               duration: {
                 text: '4 mins',
-                value: 223,
+                value: 480,
               },
             },
           },
         },
         {
-          name: 'India Food and Grocery',
+          name: 'Loblaws',
           commutes: {
             driving: {
               distance: {
@@ -210,8 +209,8 @@ export const AppContextProvider = ({ children }) => {
                 value: 1099,
               },
               duration: {
-                text: '3 mins',
-                value: 194,
+                text: '1 mins',
+                value: 60,
               },
             },
             walking: {
@@ -220,8 +219,8 @@ export const AppContextProvider = ({ children }) => {
                 value: 964,
               },
               duration: {
-                text: '12 mins',
-                value: 712,
+                text: '4 mins',
+                value: 480,
               },
             },
             transit: {
@@ -230,8 +229,8 @@ export const AppContextProvider = ({ children }) => {
                 value: 964,
               },
               duration: {
-                text: '12 mins',
-                value: 712,
+                text: '2 mins',
+                value: 120,
               },
             },
             bicycling: {
@@ -240,8 +239,8 @@ export const AppContextProvider = ({ children }) => {
                 value: 995,
               },
               duration: {
-                text: '4 mins',
-                value: 223,
+                text: '3 mins',
+                value: 360,
               },
             },
           },
@@ -250,9 +249,13 @@ export const AppContextProvider = ({ children }) => {
     },
   });
   const appState = {
-    ...DEFAULT_STATE,
+    // ...DEFAULT_STATE,
     results,
     setResults,
+    addresses,
+    setAddresses,
+    destination,
+    setDestination,
   };
   return (
     <AppContext.Provider value={appState}>{children}</AppContext.Provider>
