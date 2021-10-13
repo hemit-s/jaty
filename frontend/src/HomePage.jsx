@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
@@ -25,7 +24,7 @@ const HomePage = () => {
   const getResults = async () => {
     setIsLoading(true);
     try {
-      setAddress(addresses.concat([address]));
+      setAddresses(addresses.concat([address]));
       const res = await axios({
         method: 'get',
         url: `${process.env.REACT_APP_API_KEY}get_address_info`,

@@ -18,7 +18,7 @@ export const AppContextProvider = ({ children }) => {
   const [addresses, setAddresses] = useState([]);
   const [destination, setDestination] = useState('');
 
-  const [results, setResults] = useState();
+  const [results, setResults] = useState({});
   const appState = {
     // ...DEFAULT_STATE,
     results,
