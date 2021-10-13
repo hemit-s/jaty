@@ -1,10 +1,17 @@
 from datetime import datetime
+from datetime import timedelta
 from django.http import JsonResponse
 import json
 import googlemaps
 from coopstop.gcp_key import GCP_KEY
 
 from coopstop.address_info_interface import sample_return_val
+
+def get_9am_next_wednesday():
+    today_at_9 = datetime.today().replace(hour=9, minute=0, second=0, microsecond=0)
+    # monday == 0, wednesday = 2
+    days_until_wednesday = (2 - today_at_9.weekday() + 7) % 7
+    return today_at_9 + timedelta(days=days_until_wednesday)
 
 def get_address_information(request):
     """
@@ -31,7 +38,7 @@ def get_address_information(request):
     return JsonResponse(data)
 
 
-def get_address_commute_times(address, destination, arrival_time=datetime(2021, 9, 26, 9), travel_modes=['driving', 'walking', 'transit', 'bicycling']):
+def get_address_commute_times(address, destination, arrival_time=get_9am_next_wednesday(), travel_modes=['driving', 'walking', 'transit', 'bicycling']):
     """
     Finds the distance and duration of commutes from the given address to destination for all travel modes in the list,
     additionally incorporating provided arrival time.
