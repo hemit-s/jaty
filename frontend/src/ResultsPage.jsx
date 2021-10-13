@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Button, Container, Col, Row,
 } from 'react-bootstrap';
@@ -16,7 +16,12 @@ const ResultsPage = () => {
   } = useAppContext();
   const navigate = useNavigate();
   const options = Object.keys(results) ?? [];
-  // TODO: Handle case where there are no results yet
+
+  useEffect(() => {
+    if (Object.keys(results).length === 0) {
+      navigate('/');
+    }
+  }, [results]);
 
   return (
     <Container className="mt-1">

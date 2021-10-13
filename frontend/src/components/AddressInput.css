@@ -1,0 +1,22 @@
+.Suggestion-wrapper {
+  position: absolute;
+  z-index: 1;
+  background-color: white;
+  list-style-type: none;
+  margin-top: 2px;
+  padding: 0;
+  outline: 1px solid var(--bs-gray-300);
+}
+
+.Suggestion {
+  border: 1px solid var(--bs-gray-300);
+  padding: 8px;
+  background-color: white;
+  width: 100%;
+  text-align: left;
+}
+
+.Suggestion.selected, .Suggestion:focus, .Suggestion:hover {
+  background-color: var(--bs-gray-500);
+  outline: none;
+}

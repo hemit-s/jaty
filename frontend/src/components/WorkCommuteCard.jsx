@@ -11,7 +11,7 @@ const TravelInfoMode = ({ details, mode, type }) => (
       <Icon className="me-2" iconName={mode} />
     </div>
     &nbsp;
-    {`${capitalize(mode)}: ${details[mode][type].text}`}
+    {`${capitalize(mode)}: ${details[mode][type]?.text || 'n/a'}`}
   </div>
 );
 
