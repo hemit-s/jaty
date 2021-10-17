@@ -2,11 +2,11 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faBiking, faBus, faCar, faWalking,
+  faBiking, faBus, faCar, faMinus, faPlus, faWalking,
 } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 
-library.add(faBiking, faBus, faCar, faWalking);
+library.add(faBiking, faBus, faCar, faMinus, faPlus, faWalking);
 
 const modeToIcon = {
   walking: 'walking',
