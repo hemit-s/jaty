@@ -9,3 +9,12 @@
   align-self: center;
   justify-content: center;
 }
+
+.Header {
+  grid-template-columns: 1fr repeat(1, auto) 1fr;
+  grid-column-gap: 5px;
+}
+
+.Header button {
+  justify-self: end;
+}
